@@ -1,0 +1,75 @@
+<div class="profile-container">
+    <!-- Profile Photo Section -->
+    <div class="profile-photo-section">
+        <img src="https://tse2.mm.bing.net/th?id=OIP.hxh6omrkOuj2l9rGHNe7qQHaHa&pid=Api&P=0&h=180" alt="Profile Photo"
+            class="profile-photo" />
+        <i class="camera-icon" (click)="uploadPhoto()">📷</i>
+        <input type="file" id="photoUpload" (change)="onPhotoSelected($event)" hidden />
+    </div>
+
+    <!-- Employee Profile Form -->
+    <form [formGroup]="profileForm" class="profile-form">
+        <!-- Edit & Password Symbols -->
+        <div class="form-header">
+            <i class="edit-icon" (click)="toggleEditMode()">✏️</i>
+            
+            <i class="password-icon" (click)="togglePasswordSetting()">🔒</i>
+        </div>
+
+        <!-- Form Fields -->
+        <div class="form-fields">
+            <label>Employee ID</label>
+            <input type="text" formControlName="employeeId" [readonly]="!isEditMode" />
+
+            <label>Company Email ID</label>
+            <input type="email" formControlName="companyEmail" [readonly]="!isEditMode" />
+
+            <label>First Name</label>
+            <input type="text" formControlName="firstName" [readonly]="!isEditMode" />
+
+            <label>Last Name</label>
+            <input type="text" formControlName="lastName" [readonly]="!isEditMode" />
+
+            <label>Date of Birth</label>
+            <input type="date" formControlName="dateOfBirth" [readonly]="!isEditMode" />
+
+            <label>Gender </label>
+            <input type="gender" formControlName="gender" [readonly]="!isEditMode" >
+            
+            <label>Contact Number</label>
+            <input type="tel" formControlName="contactNo" [readonly]="!isEditMode" />
+
+            <label>Shift Time</label>
+            <input type="text" formControlName="shiftTime" [readonly]="!isEditMode" />
+
+            <label>Role</label>
+            <input type="text" formControlName="role" [readonly]="!isEditMode" />
+
+            <label>Branch Address</label>
+            <input type="text" formControlName="branchAddress" [readonly]="!isEditMode" />
+
+            <label>Joined Date</label>
+            <input type="date" formControlName="joinedDate" [readonly]="!isEditMode" />
+                        
+        </div>
+
+        <!-- Password Settings -->
+        <div *ngIf="showPasswordSetting" class="password-setting">
+            <label>Older Password</label>
+            <input type="password" formControlName="oldPassword" />
+
+            <label>New Password</label>
+            <input type="password" formControlName="newPassword" />
+
+            <label>Confirm Password</label>
+            <input type="password" formControlName="confirmPassword" />
+
+            <button type="button" (click)="cancelPasswordChange()">Cancel</button>
+            <button type="submit" (click)="resetPassword()">Reset Password</button>
+        </div>
+    </form>
+
+</div>
+<div class="m">
+    <router-outlet></router-outlet>
+</div>

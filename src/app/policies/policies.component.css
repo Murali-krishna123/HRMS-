@@ -1,0 +1,27 @@
+/* Custom styles for the Policies Component */
+.container {
+    max-width: 800px;
+  }
+  
+  .list-group-item {
+    border: 1px solid #ddd;
+    margin-bottom: 10px;
+    border-radius: 8px;
+  }
+  
+  h5 {
+    font-weight: bold;
+  }
+  
+  button {
+    margin-left: 5px;
+  }
+  
+  .modal-content {
+    border-radius: 8px;
+  }
+  
+  textarea {
+    resize: vertical;
+  }
+  

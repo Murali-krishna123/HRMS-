@@ -1,0 +1,135 @@
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f2f6;
+    color: #fcfafa;
+    margin: 0;
+   
+}
+
+.container-fluid {
+    min-height: 100vh;
+    width: 170%;
+    display: flex;
+    flex-wrap: nowrap;  
+}
+
+
+.dashboard-content {
+    padding: 30px;
+    background-color: #f3f4f6;
+    flex: 1;  
+}
+
+
+.card {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    background-color: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    width: 100%; 
+}
+
+.card-body {
+    text-align: center;
+}
+
+.card-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.card-text {
+    font-size: 24px;
+    color: #007bff;
+}
+
+.card small {
+    display: block;
+    font-size: 12px;
+    color: #888;
+    margin-top: 10px;
+}
+
+
+.calendar {
+    background-color: #fff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    padding: 20px;
+}
+
+.calendar .card-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+}
+
+.calendar input[type="date"] {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    font-size: 14px;
+}
+
+
+.clock {
+    background-color: #fff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    padding: 20px;
+}
+
+.clock .card-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+}
+
+.clock h2 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #007bff;
+    margin-top: 10px;
+}
+
+
+@media (max-width: 768px) {
+    .container-fluid {
+        flex-direction: column; 
+    }
+
+    .dashboard-content {
+        padding: 15px;
+    }
+
+    .col-md-6,
+    .col-lg-3 {
+        flex: 0 0 100%;
+        max-width: 100%;
+        margin-bottom: 15px; 
+    }
+
+    .card {
+        margin-bottom: 10px;
+    }
+}
+
+@media (min-width: 769px) {
+    .col-md-6,
+    .col-lg-3 {
+        flex: 0 0 48%; 
+        max-width: 48%;
+    }
+}
+
+@media (min-width: 992px) {
+    .col-lg-3 {
+        flex: 0 0 22%; 
+        max-width: 22%;
+    }
+}

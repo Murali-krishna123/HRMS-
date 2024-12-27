@@ -1,0 +1,85 @@
+<div class="container" >
+   
+    <div class="sidebar">
+        <img src="https://www.harphil.com/assets/images/logo/logo.png" width=170px height="100px">
+
+        <br><br>&nbsp;
+
+        <ul class="nav-links">
+            <li><a routerLink="/dashboard/dashboard1"><img src="https://cdn-icons-png.flaticon.com/128/4725/4725681.png"
+                        width="20px" height="20px">Dashboard</a></li>
+            <li><a routerLink="/dashboard/account"><img src="https://cdn-icons-png.flaticon.com/128/1177/1177568.png"
+                        width="25px" height="25px">My Account</a></li>
+            <li><a routerLink="/dashboard/attendance-report"><img
+                        src="https://cdn-icons-png.flaticon.com/128/3125/3125856.png" width="25px"
+                        height="25px">Attendance Report</a></li>
+
+            <li><a (click)="logout()" style="cursor:pointer;"><img
+                        src="https://cdn-icons-png.flaticon.com/128/5689/5689828.png" width="25px"
+                        height="25px">Logout</a></li>
+
+        </ul>
+    </div>
+
+    <div class="main-content">
+        <nav class="top-navbar">
+            <div class="profile">
+                <img src="https://tse2.mm.bing.net/th?id=OIP.hxh6omrkOuj2l9rGHNe7qQHaHa&pid=Api&P=0&h=180" alt="Profile"
+                    class="profile-img">
+                <span>Murali Krishna</span>
+                <button id="theme-toggle" class="theme-toggle-btn" (click)="toggleTheme()">
+                    <span id="theme-icon">{{ isDarkMode ? '🌙' : '☀️' }}</span>
+                </button>
+            </div>
+        </nav>
+        <div class="leave-request-container">
+            <button class="btn btn-primary" (click)="toggleForm()"><img
+                    src="https://cdn-icons-png.flaticon.com/128/11244/11244380.png" width="25px" height="25px">Request
+                for Leave</button>
+
+            <div *ngIf="isFormVisible" class="leave-form">
+                <h4>Leave Request Form</h4>
+
+                <form (ngSubmit)="submitLeaveRequest()">
+                    <div class="form-group mb-3">
+                        <label for="leaveType">Type of Leave</label>
+                        <select id="leaveType" class="form-control" [(ngModel)]="leaveRequest.type" name="type"
+                            required>
+                            <option value="">Select Leave Type</option>
+                            <option *ngFor="let type of leaveTypes" [value]="type">{{ type }}</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label for="startDate">Start Date</label>
+                        <input type="date" id="startDate" class="form-control" [(ngModel)]="leaveRequest.startDate"
+                            name="startDate" required>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label for="endDate">End Date</label>
+                        <input type="date" id="endDate" class="form-control" [(ngModel)]="leaveRequest.endDate"
+                            name="endDate" required>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label for="reason">Reason</label>
+                        <textarea id="reason" class="form-control" [(ngModel)]="leaveRequest.reason" name="reason"
+                            rows="3" required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-success">Done</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="transparent-image">
+                <!-- <img src="https://tse2.mm.bing.net/th?id=OIP.lnGElFxAZRvbCbIXwyKaqAHaED&pid=Api&P=0&h=180" width=170%
+                    height="100%" align-center position="sticky"> -->
+            </div>
+            <!-- Router outlet for main content -->
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,78 @@
+<div class="container-fluid">
+    <!-- Dashboard Content -->
+    <div class="dashboard-content">
+        <div class="row">
+            <div class="col-md-12">
+                <h3 class="mt-3">Insights</h3>
+            </div>
+
+            <!-- Insights Cards -->
+            <div class="col-md-6 col-lg-3" *ngFor="let insight of insights">
+                <div class="card my-2">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ insight.title }}</h5>
+                        <p class="card-text">{{ insight.value }}%</p>
+                        <small class="text-muted">{{ insight.description }}</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Calendar and Clock -->
+        <div class="row mt-3">
+            <div class="col-md-6">
+                <div class="calendar card">
+                    <div class="card-body">
+                        <h5 class="card-title">Calendar</h5>
+                        <input type="date" class="form-control" [(ngModel)]="selectedDate"/>
+                    </div>
+                </div>
+                <div *ngIf="selectedDate">
+                    <form (ngSubmit)="submitLeaveApplication()">
+                      <div class="form-group">
+                        <label for="leaveDate" class="form-label">From</label>
+                        <input type="date" id="leaveDate" [(ngModel)]="selectedDate" class="form-control" name="leaveDate" required />  
+                      </div>
+                      <div class="form-group">
+                        <label for="leaveDate" class="form-label">To</label>
+                        <input type="date" id="leaveDate" [(ngModel)]="endDate" class="form-control" name="leaveDate" required />  
+                      </div>
+                      <div class="form-group">
+                        <label for="reason">Reason</label>
+                        <textarea id="reason" [(ngModel)]="leaveReason" class="form-control" name="reason" required></textarea>
+                  
+                      </div>
+                        <div class="form-group">
+
+                            <button type="submit" class="btn btn-success">Submit Leave Application</button>
+                    
+                        </div>
+</form>
+                  </div>
+            </div>
+            <div class="col-md-6">
+                <div class="clock card text-center">
+                    <div class="card-body">
+                        <h5 class="card-title">Current Time</h5>
+                        <img src="https://cdn-icons-png.flaticon.com/128/1584/1584808.png" alt="">
+                        <h2>{{ time | date: 'HH:mm:ss' }}</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Punch In/Out Timer -->
+        <div class="row mt-4">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Working Timer</h5><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSrUxvLHHAUnlb-5ME0QGcLeLV2f50aBSv68g&s">
+                        <h2>{{ hours }}:{{ minutes }}:{{ seconds }}</h2>
+                        <button class="btn btn-success m-2" (click)="startTimer()" [disabled]="isRunning">Punch In</button>
+                        <button class="btn btn-danger m-2" (click)="stopTimer()" [disabled]="!isRunning">Punch Out</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

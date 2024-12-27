@@ -1,0 +1,53 @@
+<div class="container">
+    <h4>Attendance Report</h4>
+
+    <!-- Search and Filter Options -->
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <div class="search-bar">
+            <input type="text" [(ngModel)]="searchQuery" (input)="filterTable()" placeholder="Search..."
+                class="form-control" />
+            <button class="btn btn-outline-secondary"><i class="fas fa-search"></i></button>
+        </div>
+        <div class="date-filter">
+            <label>Show Entries:</label>
+            <input type="date" [(ngModel)]="startDate" class="form-control" (change)="filterTable()" />
+            <input type="date" [(ngModel)]="endDate" class="form-control" (change)="filterTable()" />
+            <button class="btn btn-primary">Export</button>
+        </div>
+    </div>
+
+    <!-- Attendance Table -->
+    <table class="table table-bordered attendance-table">
+        <thead>
+            <tr>
+                
+                <th>Date</th>
+                <th>Time In</th>
+                <th>Time Out</th>
+                <th>Break Hours</th>
+                <th>Working Hours</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let record of filteredRecords">
+                <td>{{ record.date | date: 'dd-MM-yyyy' }}</td>
+                <td>
+                    <button class="btn btn-primary time-btn" [class.kick-animation]="record.timeInClicked"
+                        (click)="toggleTimeInAnimation(record)">
+                        Time In
+                    </button>
+                    {{ record.timeIn }}
+                </td>
+                <td>
+                    <button class="btn btn-danger time-btn" [class.kick-animation]="record.timeOutClicked"
+                        (click)="toggleTimeOutAnimation(record)">
+                        Time Out
+                    </button>
+                    {{ record.timeOut }}
+                </td>
+                <td>{{ record.breakHours }}</td>
+                <td>{{ record.workingHours }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

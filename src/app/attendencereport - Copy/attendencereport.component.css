@@ -1,0 +1,132 @@
+.container {
+    margin-top: 20px;
+    background-color: #ffffff;
+    padding: 120px;
+    border-radius: 20px;
+    box-shadow: 10 40 130px rgba(0, 0, 0, 0.1);
+    width: 170%;
+    max-width: 1200px;
+    height: auto;
+}
+
+h4 {
+    font-weight: 600;
+    color: #333333;
+}
+
+.attendance-table {
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: #f8f9fb;
+}
+
+.attendance-table th,
+.attendance-table td {
+    text-align: center;
+    vertical-align: middle;
+    padding: 12px;
+    font-size: 16px;
+    color: #4a4a4a;
+}
+
+.attendance-table th {
+    background-color: #f0f1f5;
+    font-weight: 600;
+}
+
+.search-bar input,
+.date-filter input {
+    border-radius: 8px;
+    border: 1px solid #d0d1d5;
+    padding: 8px 12px;
+    font-size: 14px;
+}
+
+.search-bar .btn,
+.date-filter .btn {
+    border-radius: 8px;
+    padding: 6px 12px;
+    font-size: 14px;
+    color: #fff;
+}
+
+.search-bar .btn-outline-secondary {
+    border-color: #6c757d;
+    color: #6c757d;
+}
+
+.date-filter .btn-primary {
+    background-color: #4a90e2;
+    border: none;
+}
+
+.date-filter label {
+    margin-right: 10px;
+    color: #666666;
+    font-weight: 500;
+}
+
+.time-btn {
+    position: relative;
+    overflow: hidden;
+    border-radius: 5px;
+    padding: 8px 16px;
+    font-size: 14px;
+    font-weight: 600;
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+.time-btn.btn-primary {
+    background-color: #28a745;
+    color: #ffffff;
+    border: none;
+}
+
+.time-btn.btn-primary:hover {
+    background-color: #218838;
+}
+
+.time-btn.btn-danger {
+    background-color: #dc3545;
+    color: #ffffff;
+    border: none;
+}
+
+.time-btn.btn-danger:hover {
+    background-color: #c82333;
+}
+
+.kick-animation {
+    animation: kick 0.5s ease-out;
+}
+
+@keyframes kick {
+    0% {
+        transform: scale(1);
+    }
+    30% {
+        transform: scale(1.1) rotate(-3deg);
+    }
+    50% {
+        transform: scale(1.1) rotate(3deg);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.date-filter,
+.search-bar {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.date-filter {
+    justify-content: flex-end;
+}
+
+.btn-primary,
+.btn-outline-secondary {
+    cursor: pointer;
+}

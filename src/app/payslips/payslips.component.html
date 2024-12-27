@@ -1,0 +1,59 @@
+<!-- 
+<div class="payslip-container">
+    <div class="payslip-header">
+      <img src="assets/logo.png" alt="Company Logo">
+      <h2>Company Name</h2>
+      <p>123 Business St, City, State, ZIP</p>
+    </div>
+  
+    <div class="payslip-section">
+      <h4>Employee Details</h4>
+      <div class="row">
+        <div class="col-md-6">
+          <p><strong>Name:</strong> {{ employee.name }}</p>
+          <p><strong>Employee ID:</strong> {{ employee.id }}</p>
+        </div>
+        <div class="col-md-6">
+          <p><strong>Designation:</strong> {{ employee.designation }}</p>
+          <p><strong>Department:</strong> {{ employee.department }}</p>
+        </div>
+      </div>
+    </div>
+  
+    <div class="payslip-section">
+      <h4>Salary Details</h4>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Description</th>
+            <th>Earnings</th>
+            <th>Deductions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of salaryDetails">
+            <td>{{ item.description }}</td>
+            <td>{{ item.earnings | currency }}</td>
+            <td>{{ item.deductions | currency }}</td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <th>Total</th>
+            <th>{{ totalEarnings | currency }}</th>
+            <th>{{ totalDeductions | currency }}</th>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+  
+    <div class="payslip-section">
+      <h4>Net Salary</h4>
+      <p><strong>{{ netSalary | currency }}</strong></p>
+    </div>
+  
+    <div class="footer-note">
+      <p>This is a computer-generated payslip and does not require a signature.</p>
+    </div>
+  </div>
+   -->

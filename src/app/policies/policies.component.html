@@ -1,0 +1,62 @@
+
+<div class="container mt-5">
+    <h3>Company Policies</h3>
+  
+    <!-- List of Policies -->
+    <div class="list-group">
+      <div class="list-group-item" *ngFor="let policy of policies; let i = index">
+        <div class="d-flex justify-content-between">
+          <h5>{{ policy.title }}</h5>
+          <div>
+            <button class="btn btn-info btn-sm" (click)="toggleDetails(i)">
+              {{ policy.showDetails ? 'Hide Details' : 'Show Details' }}
+            </button>
+            <button class="btn btn-warning btn-sm ms-2" (click)="editPolicy(i)">
+              Edit
+            </button>
+            <!-- Delete Button -->
+            <button class="btn btn-danger btn-sm ms-2" (click)="deletePolicy(i)">
+              Delete
+            </button>
+          </div>
+        </div>
+  
+        <div *ngIf="policy.showDetails">
+          <p class="mt-2">{{ policy.description }}</p>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Add Policy Button -->
+    <div class="mt-4">
+      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addPolicyModal">
+        Add New Policy
+      </button>
+    </div>
+  </div>
+  
+  <!-- Add/Edit Policy Modal -->
+  <div class="modal fade" id="addPolicyModal" tabindex="-1" aria-labelledby="addPolicyModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="addPolicyModalLabel">{{ isEditing ? 'Edit Policy' : 'Add New Policy' }}</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form (ngSubmit)="onSubmit()">
+            <div class="mb-3">
+              <label for="policyTitle" class="form-label">Policy Title</label>
+              <input type="text" class="form-control" id="policyTitle" [(ngModel)]="currentPolicy.title" name="title" required />
+            </div>
+            <div class="mb-3">
+              <label for="policyDescription" class="form-label">Policy Description</label>
+              <textarea class="form-control" id="policyDescription" [(ngModel)]="currentPolicy.description" name="description" rows="3" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-success w-100">{{ isEditing ? 'Update Policy' : 'Add Policy' }}</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  

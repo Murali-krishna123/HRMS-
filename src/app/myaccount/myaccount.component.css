@@ -1,0 +1,88 @@
+.profile-container {
+  max-width: 600px;
+  margin: auto;
+  text-align: center;
+  padding: 2rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+  border-radius: 10px;
+  
+}
+
+.profile-photo-section {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.profile-photo {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #007bff;
+}
+
+.camera-icon {
+  position: absolute;
+  bottom: 10px;
+  right: 20px;
+  font-size: 1.5rem;
+  color: #007bff;
+  cursor: pointer;
+}
+
+.form-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.form-fields label,
+.password-setting label {
+  display: block;
+  margin: 0.5rem 0 0.2rem;
+  font-weight: 500;
+}
+
+.form-fields input,
+.password-setting input {
+  width: 100%;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.password-setting button {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.password-setting button:nth-child(1) {
+  background-color: #f0f0f0;
+  color: #333;
+}
+
+.password-setting button:nth-child(2) {
+  background-color: #007bff;
+  color: #fff;
+}
+
+@media (max-width: 768px) {
+  .profile-container {
+    padding: 1rem;
+  }
+
+  .profile-photo {
+    width: 120px;
+    height: 120px;
+  }
+
+  .form-fields label,
+  .password-setting label {
+    font-size: 0.9rem;
+  }
+}
